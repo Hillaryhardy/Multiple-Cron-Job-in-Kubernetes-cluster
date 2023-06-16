@@ -1,0 +1,14 @@
+From datetime import datetime
+import time
+
+COPY check_ple_delay.sh /usr/local/cloudops/sbin/check_ple_delay.sh
+
+WORKDIR /usr/local/cloudops/sbin
+
+RUN echo "*/5 * * * * root /usr/local/cloudops/sbin/check_ple_delay.sh ia-gcp >>/tmp/ple_delay.log 2>&1" > /etc/cron.d/monitoring-cronjob
+
+# Give execution permissions to the cron job
+RUN chmod 0644 /etc/cron.d/monitoring-cronjob
+
+# Start cron service
+CMD cron -f

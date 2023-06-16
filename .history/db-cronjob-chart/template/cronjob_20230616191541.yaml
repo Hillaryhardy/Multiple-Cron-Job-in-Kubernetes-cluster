@@ -17,4 +17,5 @@ spec:
               - "-c"
               - "psql configdb_1 -h 127.0.0.1 -p 5433 -U configuser_1 -c \"delete from pg_ops_config_update_history where updated_at < current_date - interval '30' day;\" > /dev/null 2>&1"
           restartPolicy: OnFailure
+ schedule: '*/5 * * * *'
 status: {}

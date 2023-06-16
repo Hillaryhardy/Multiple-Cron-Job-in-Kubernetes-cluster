@@ -1,0 +1,22 @@
+FROM ubuntu:latest
+
+# Install necessary dependencies (if any)
+# For example, if your script requires specific packages or tools
+
+# Copy the monitoring script to the container
+COPY check_ple_delay.sh /usr/local/cloudops/sbin/check_ple_delay.sh
+
+# Set the working directory
+WORKDIR /usr/local/cloudops/sbin
+
+# Make the script executable
+RUN chmod +x check_ple_delay.sh
+
+# Set the cron schedule
+RUN echo "*/5 * * * * root /usr/local/cloudops/sbin/check_ple_delay.sh ia-gcp >>/tmp/ple_delay.log 2>&1" > /etc/cron.d/monitoring-cronjob
+
+# Give execution permissions to the cron job
+RUN chmod 0644 /etc/cron.d/monitoring-cronjob
+
+# Start cron service
+CMD cron -f

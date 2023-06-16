@@ -1,0 +1,21 @@
+FROM postgres:latest
+
+
+#SQL script to the container
+COPY db_cleanup.sql /docker-entrypoint-initdb.d/
+
+# environment variables for database connection
+ENV PGHOST=127.0.0.1
+ENV PGPORT=5433
+ENV PGUSER=configuser_1
+ENV PGPASSWORD=your_password
+ENV PGDATABASE=configdb_1
+
+# Run the SQL script using psql
+RUN echo "0 3 * * * psql -f /docker-entrypoint-initdb.d/db_cleanup.sql > /dev/null 2>&1" > /etc/cron.d/db-cronjob
+
+# Give execution permissions to the cron job
+RUN chmod 0644 /etc/cron.d/db-cronjob
+
+# Start cron service
+CMD cron -f
