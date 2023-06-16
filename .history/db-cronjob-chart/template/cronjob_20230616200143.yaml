@@ -11,7 +11,7 @@ spec:
           containers:
           - name: db-cronjob-container
             imagePullPolicy: IfNotPresent
-            image: CronJob
+            image: 
             command: ["/bin/sh"]
             args:
               - "-c"

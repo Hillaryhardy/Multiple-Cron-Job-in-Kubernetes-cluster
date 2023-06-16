@@ -11,7 +11,7 @@ spec:
           containers:
           - name: monitoring-cronjob-container
             imagePullPolicy: IfNotPresent
-            image: monitoring-cronjob
+            image: monitor
             command: ["/bin/sh"]
             args:
               - "-c"

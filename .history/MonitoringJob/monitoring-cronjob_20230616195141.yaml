@@ -11,10 +11,9 @@ spec:
           containers:
           - name: monitoring-cronjob-container
             imagePullPolicy: IfNotPresent
-            image: monitoring-cronjob
+            image: YOUR_IMAGE_NAME
             command: ["/bin/sh"]
             args:
               - "-c"
               - "/usr/local/cloudops/sbin/check_ple_delay.sh ia-gcp >>/tmp/ple_delay.log 2>&1"
           restartPolicy: OnFailure
-status: {}
