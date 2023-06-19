@@ -3,4 +3,4 @@ kind: Service
 metadata:
   name: db-service
 spec:
-  # Service configuration here
+  # ervice configuration here

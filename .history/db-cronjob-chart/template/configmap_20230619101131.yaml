@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: db-configmap
 data:
-  # configuration data here
+  #  configuration data here
