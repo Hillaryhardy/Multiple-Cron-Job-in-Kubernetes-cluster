@@ -9,7 +9,7 @@ spec:
       template:
         spec:
           containers:
-          - name: monitoring-cronjob
+          - name: monitoring-cronjo
             imagePullPolicy: IfNotPresent
             image: monitoring-cronjob
             command: ["/bin/sh"]
