@@ -2,7 +2,7 @@ FROM postgres:latest
 
 
 #SQL script to the container
-COPY . .
+COPY ..
 
 #environment variables for database connection
 ENV PGHOST=127.0.0.1

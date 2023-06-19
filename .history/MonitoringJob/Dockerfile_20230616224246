@@ -1,9 +1,7 @@
-FROM python:3
+From datetime import datetime
+import time
 
-WORKDIR /usr/src/appe
-
-
-COPY . .
+COPY ..
 
 WORKDIR /usr/local/cloudops/sbin
 

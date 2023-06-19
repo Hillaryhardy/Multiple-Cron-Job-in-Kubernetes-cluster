@@ -1,7 +1,5 @@
-FROM python:3
-
-WORKDIR /usr/src/appe
-
+From datetime import datetime
+Import time
 
 COPY . .
 

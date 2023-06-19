@@ -1,6 +1,4 @@
-FROM python:3
-
-WORKDIR /usr/src/appe
+FImport timerom datetime import datetime
 
 
 COPY . .
